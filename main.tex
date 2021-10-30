@@ -139,7 +139,7 @@ Para esto se define una clase \codeword{Analyser} que es la que maneja toda la l
 
 Este es el paso más complicado. Aquí lo que se hace es hallar los autovalores con las fórmulas y dejar las autofunciones definidas como métodos. Para hacer esto se usan las expresiones analíticas que se acaban de hallar. Un detalle es que también debería funcionar para el pozo de potencial infinito y el oscilador armónico, por lo que la función que hace este procesamiento tiene un condicional que evalúa el potencial con el que fue instanciada la clase \codeword{Analyser} y decide cuál fórmula de autovalores y autofunciones usar.
 
-Cuando el potencial es del pozo finito se hace un paso extra, que es hallar los ceros de las ecuaciones trascendentales (15). Para que hallan en total cuatro ceros (cuatro $v_n$) hay que elegir $u_0^2$ correctamente:
+Cuando el potencial es del pozo finito se hace un paso extra, que es hallar los ceros de las ecuaciones trascendentales (15). Esto se hace con un paquete de Python llamado \codeword{scipy.optimize}. Para que hayan en total cuatro ceros (cuatro $v_n$) hay que elegir $u_0^2$ correctamente:
 
 \begin{equation}
     u_0^2=30
@@ -246,7 +246,7 @@ Y autofunciones del oscilador armónico:
     \psi_n(z)=\frac{1}{\sqrt{2^nn!}}\left(\frac{m\omega}{\pi\hbar}\right)^{1/4}e^{-\frac{m\omega x^2}{2\hbar}}H_n\left(\sqrt{\frac{m\omega}{\hbar}x}\right)
 \end{equation}
 
-donde $H_n$ son las funciones de Hermite. Se repiten las mismas gráficas de las autofunciones (figura 7) y las gráficas de las densidades de probabilidad (figura 8):
+donde $H_n$ son las funciones de Hermite, que se calculan con un paquete de Python llamado \codeword{scipy.special}. Se repiten las mismas gráficas de las autofunciones (figura 7) y las gráficas de las densidades de probabilidad (figura 8):
 
 \begin{figure}
     \includegraphics[scale=0.5]{images/harm_eigen.png}
